@@ -22,7 +22,7 @@ public class StudentController {
 	@Autowired
 	private StudentService studentServ;
 
-	@GetMapping
+	@GetMapping("get/data")
 	public List<Student> getAll() {
 		return studentServ.getAll();
 	}
@@ -32,7 +32,7 @@ public class StudentController {
 		return studentServ.getById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
 	}
 
-	@PostMapping
+	@PostMapping("/create/data")
 	public Student create(@RequestBody Student student) {
 		return studentServ.save(student);
 	}
